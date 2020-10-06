@@ -51,7 +51,7 @@ if __name__ == "__main__":
     n = 30
     A = [[randint(1, 100) for _ in range(n)] for _ in range(n)]
     x = [randint(1, 100) for _ in range(n)]
-    print(multiply(A, x))
-    print(numpy.dot(A, x))
-    print(timeit('multiply(A, x)', setup='from __main__ import multiply, A, x', number=10) / 10)
-    print(timeit('numpy.dot(A, x)', setup='from __main__ import numpy, A, x', number=10) / 10)
+    print('Parallel multiplication:', multiply(A, x))
+    print('Avg. time:', timeit('multiply(A, x)', setup='from __main__ import multiply, A, x', number=10) / 10)
+    print('Numpy multiplication:', numpy.dot(A, x))
+    print('Avg. time:', timeit('numpy.dot(A, x)', setup='from __main__ import numpy, A, x', number=10) / 10)
