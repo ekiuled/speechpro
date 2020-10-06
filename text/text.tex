@@ -1,0 +1,38 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[russian]{babel}
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text]{CMU Serif} 
+\setmonofont[Mapping=tex-text]{CMU Typewriter Text}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{fullpage}
+
+\begin{document}
+
+\section*{1}
+Воспользуемся методом Якоби для решения уравнения $Ax=b$, который сходится, если $A$ имеет диагональное преобладание. $A=D+L+U$, где $L$ --- нижняя треугольная часть, $U$ --- верхняя треугольная часть, $D$ --- диагональ. 
+
+$(D+L+U)x=b \Rightarrow Dx=-(L+U)x+b \Rightarrow x=D^{-1}(b-(L+U)x)$. 
+
+Положим $x_{k+1}=D^{-1}(b-(L+U)x_k)$. Переписывая в виде $x_{k+1}=Bx_k+q$, получаем:
+
+$B=-D^{-1}(L+U)$, 
+$q=D^{-1}b=\begin{pmatrix}
+    \frac{b_1}{A_{11}} \\
+    ...\\
+    \frac{b_n}{A_{nn}}
+\end{pmatrix}$,
+$Bx_k=-D^{-1}(L+U)x_k=-\begin{pmatrix}
+    \frac{1}{A_{11}}\sum\limits_{j\not=1} A_{1j}(x_k)_j \\
+    ... \\
+    \frac{1}{A_{nn}}\sum\limits_{j\not=n} A_{nj}(x_k)_j
+\end{pmatrix}$.
+
+\section*{2}
+$x_{k+1}=Bx_k$
+
+Если $||B||<1$, $x_k \rightarrow$ \textbf{0} (все компоненты предела одинаковы).
+Если $||B||>0$, $x_k$ расходится. 
+Если $B=I$, $x_k \rightarrow x_0$, но для произвольной $||B||=1$ нет сходимости.
+
+\end{document}
